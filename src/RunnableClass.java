@@ -1,6 +1,6 @@
 
 public class RunnableClass {
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
     Runnable classA = () -> {
             for( int i = 0 ; i <= 5 ; i++){
                 System.out.println("hello from A");
