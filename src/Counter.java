@@ -1,6 +1,6 @@
 public class Counter {
-    int counter;
-    public  void increment(){
+    static int counter;
+    public synchronized static void increment(){
         counter++;
     }
 }
