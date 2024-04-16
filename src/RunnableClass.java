@@ -1,3 +1,9 @@
+class Counter {
+    static int counter;
+    public synchronized static void increment(){
+        counter++;
+    }
+}
 
 public class RunnableClass {
     public static void main(String[] args) throws InterruptedException {
@@ -37,6 +43,6 @@ public class RunnableClass {
     t1.join();
     t2.join();
 
-        System.out.println(Counter.counter);
+        System.out.println("Final counter value: " + Counter.counter);
     }
 }
