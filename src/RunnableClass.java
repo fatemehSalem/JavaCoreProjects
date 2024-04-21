@@ -1,49 +1,31 @@
-class Counter {
-    static int counter;
-    public synchronized static void increment(){
-        counter++;
-    }
-}
+
 
 public class RunnableClass {
-    public static void main(String[] args) throws InterruptedException {
-    Runnable classA = () -> {
-            for( int i = 1 ; i <= 1000 ; i++){
-                Counter.increment();
-            }
-    };
+    public static void main(String[] args) {
+        int[] nums = {10, 11, 12, 14, 18, 20, 28, 34};
+        int target = 2121;
 
+        int result = linearSearch(nums , target);
 
-    Runnable classB = () -> {
-            for( int i = 1 ; i <= 1000 ; i++){
-                Counter.increment();
+        if(result != -1)
+            System.out.println("Element found at Index: " + result);
+        else
+            System.out.println("Element not found!");
+    }
+/*    public static int[] createRandomArray(int size) {
+        Random random = new Random();
+        int[] numbers = new int[size];
+        for (int i = 0; i < size; i++) {
+            numbers[i] = random.nextInt();
+        }
+        return numbers;
+    }*/
 
-            }
-        };
-
-
-
-    Thread t1 = new Thread(classA);
-    Thread t2 = new Thread(classB);
-
-      /*  Runnable t3 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                c.increment();
-            }
-        });*/
-
-/*        Thread t4 = new Thread(() -> {
-            for (int i = 0; i < 1000; i++) {
-                Counter.increment();
-            }
-        });*/
-
-    t1.start();
-    t2.start();
-
-    t1.join();
-    t2.join();
-
-        System.out.println("Final counter value: " + Counter.counter);
+    public static int linearSearch(int[] nums, int target) {
+        for(int i = 0 ; i < nums.length ; i++){
+            if(nums[i] == target)
+                return i;
+        }
+        return -1;
     }
 }
