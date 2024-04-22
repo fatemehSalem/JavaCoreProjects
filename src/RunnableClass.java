@@ -8,7 +8,6 @@ public class RunnableClass {
         int result2 = linearSearch(nums , target);
         int result1 = binarySearch(nums , target);
 
-
      /*   if(result1 != -1)
             System.out.println("Element found at Index: " + result1);
         else
