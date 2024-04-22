@@ -2,8 +2,8 @@
 
 public class RunnableClass {
     public static void main(String[] args) {
-        int[] nums = {5 , 7 , 9 , 11 , 13};
-        int target = 11;
+        int[] nums = new int[32];
+        int target = 900;
 
         int result2 = linearSearch(nums , target);
         int result1 = binarySearch(nums , target);
