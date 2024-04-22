@@ -2,16 +2,16 @@
 
 public class RunnableClass {
     public static void main(String[] args) {
-        int[] nums = new int[32];
-        int target = 900;
+        int[] nums = {1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10};
+        int target = 100;
 
-        int result2 = linearSearch(nums , target);
-        int result1 = binarySearch(nums , target);
+       // int result2 = linearSearch(nums , target);
+        int result1 = binarySearch(nums , target , 0 , nums.length - 1);
 
-     /*   if(result1 != -1)
+      if(result1 != -1)
             System.out.println("Element found at Index: " + result1);
         else
-            System.out.println("Element not found!");*/
+            System.out.println("Element not found!");
     }
 /*    public static int[] createRandomArray(int size) {
         Random random = new Random();
@@ -36,23 +36,21 @@ public class RunnableClass {
         return -1;
     }
 
-    public static int binarySearch(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
-        int steps = 0;
-
+    public static int binarySearch(int[] nums, int target , int left , int right) {
         while(left <= right){
-            steps ++;
             int mid = (left + right) / 2;
             if(nums[mid] == target){
-                System.out.println("Steps taken by Binary: " + steps);
+
                 return mid;
-            } else if(nums[mid] < target)
+            } else if(nums[mid] < target){
                 left = mid + 1;
-              else
+                binarySearch(nums , target , left , right);
+            } else{
                 right = mid - 1;
+                binarySearch(nums , target , left , right);
+            }
+
         }
-        System.out.println("Steps taken by Binary: " + steps);
         return -1;
     }
 }
