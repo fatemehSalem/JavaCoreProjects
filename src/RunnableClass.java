@@ -2,15 +2,17 @@
 
 public class RunnableClass {
     public static void main(String[] args) {
-        int[] nums = {10, 11, 12, 14, 18, 20, 28, 34};
-        int target = 18;
+        int[] nums = {5 , 7 , 9 , 11 , 13};
+        int target = 11;
 
-        int result = binarySearch(nums , target);
+        int result2 = linearSearch(nums , target);
+        int result1 = binarySearch(nums , target);
 
-        if(result != -1)
-            System.out.println("Element found at Index: " + result);
+
+     /*   if(result1 != -1)
+            System.out.println("Element found at Index: " + result1);
         else
-            System.out.println("Element not found!");
+            System.out.println("Element not found!");*/
     }
 /*    public static int[] createRandomArray(int size) {
         Random random = new Random();
@@ -22,25 +24,36 @@ public class RunnableClass {
     }*/
 
     public static int linearSearch(int[] nums, int target) {
+        int steps = 0;
         for(int i = 0 ; i < nums.length ; i++){
-            if(nums[i] == target)
+            steps ++;
+            if(nums[i] == target){
+                System.out.println("Steps taken by Linear: " + steps);
                 return i;
+            }
+
         }
+        System.out.println("Steps taken by Linear: " + steps);
         return -1;
     }
 
     public static int binarySearch(int[] nums, int target) {
         int left = 0;
         int right = nums.length - 1;
+        int steps = 0;
 
         while(left <= right){
+            steps ++;
             int mid = (left + right) / 2;
-            if(nums[mid] == target)
+            if(nums[mid] == target){
+                System.out.println("Steps taken by Binary: " + steps);
                 return mid;
-            else if(nums[mid] < target)
-                left = left + 1;
-            else right = right - 1;
+            } else if(nums[mid] < target)
+                left = mid + 1;
+              else
+                right = mid - 1;
         }
+        System.out.println("Steps taken by Binary: " + steps);
         return -1;
     }
 }
