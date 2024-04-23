@@ -10,7 +10,7 @@ public class RunnableClass {
             System.out.print(num + " ");
 
         for(int i = 0 ; i < nums.length; i++){
-            for(int j = 0 ; j < nums.length - 1 ; j++){
+            for(int j = 0 ; j < nums.length - i - 1 ; j++){
                 if(nums[j] > nums[j+1]){
                     temp = nums[j];
                     nums[j] = nums[j+1];
