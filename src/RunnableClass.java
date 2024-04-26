@@ -19,8 +19,8 @@ public class RunnableClass {
             // for (int i = arr.length - 1; i >= 0; i--) { //Find the index of the maximum element
             int minIndex = i;
             for (int j = i + 1; j < nums.length; j++) {
-                //if (nums[j] < nums[minIndex]) { //find the minimum element, sort from lower to upper , ASC
-                if (nums[j] > nums[minIndex]) { //sort from upper to lower, DESC
+                if (nums[j] < nums[minIndex]) { //find the minimum element, sort from lower to upper , ASC
+               // if (nums[j] > nums[minIndex]) { //sort from upper to lower, DESC
                     minIndex = j;
                 }
             }
