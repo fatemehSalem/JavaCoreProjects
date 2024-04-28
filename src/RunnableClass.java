@@ -18,7 +18,6 @@ public class RunnableClass {
 
         return sumArrayAsArray[sumArrayAsArray.length - 1];
 
-
     }
     public static void main(String[] args) {
         int[] arr = {-1 , -2 , -3 , -4};
