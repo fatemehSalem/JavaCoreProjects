@@ -15,7 +15,6 @@ public class RunnableClass {
         Arrays.sort(myArrays);
 
         int maxGap = 0;
-       // int prevIndex = myArrays[0].index;
 
         for (int i = 1; i < n; i++) {
             if(myArrays[i].number == myArrays[i-1].number){
@@ -23,7 +22,6 @@ public class RunnableClass {
             } else{
                 maxGap = Math.max(maxGap, myArrays[i].index );
             }
-
         }
 
         return maxGap;
