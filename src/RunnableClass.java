@@ -1,37 +1,38 @@
-import java.util.ArrayList;
+
+import java.util.Arrays;
 
 public class RunnableClass {
-    public static ArrayList<Integer> findSubarray(int[] A, int S) {
-        ArrayList<Integer> result = new ArrayList<>();
-        int left = 0, right = 0;
-        int sum = 0;
 
-        while (right < A.length) {
-            sum += A[right];
 
-            while (sum > S) {
-                sum -= A[left];
-                left++;
-            }
+    public static int maxGap(int[] A) {
+        int n = A.length;
+        MyArray[] myArrays = new MyArray[n];
 
-            if (sum == S) {
-                result.add(left + 1); // Adjusting to 1-based indexing
-                result.add(right + 1); // Adjusting to 1-based indexing
-                return result;
-            }
-
-            right++;
+        for (int i = 0; i < n; i++) {
+            myArrays[i] = new MyArray(A[i], i);
         }
 
-        result.add(-1);
-        return result;
+        Arrays.sort(myArrays);
+
+        int maxGap = 0;
+       // int prevIndex = myArrays[0].index;
+
+        for (int i = 1; i < n; i++) {
+            if(myArrays[i].number == myArrays[i-1].number){
+                maxGap = Math.max(maxGap, myArrays[i].index - myArrays[i-1].index);
+            } else{
+                maxGap = Math.max(maxGap, myArrays[i].index );
+            }
+
+        }
+
+        return maxGap;
     }
-
     public static void main(String[] args) {
-        int[] A = {1, 4, 20, 3, 10, 5};
-        int S = 33;
+        int[] arr = {1,  9 , 2, 5, 6, 2, 1, 1, 9, 2};
 
-        ArrayList<Integer> result = findSubarray(A, S);
-        System.out.println(result);
+
+        int result = maxGap(arr);
+        System.out.println("Maximum possible gap: " + result);
     }
 }
