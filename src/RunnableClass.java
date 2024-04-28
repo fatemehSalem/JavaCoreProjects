@@ -1,36 +1,38 @@
-
+import java.util.ArrayList;
 
 public class RunnableClass {
-    public static void main(String[] args) {
-        int[] nums = {2 , 5 , 4 , 11 , 1 , 7 , 10 , 13 , 12};
+    public static ArrayList<Integer> findSubarray(int[] A, int S) {
+        ArrayList<Integer> result = new ArrayList<>();
+        int left = 0, right = 0;
+        int sum = 0;
 
-        System.out.println("before sorting:");
-        for(int num : nums)
-            System.out.print(num + " ");
+        while (right < A.length) {
+            sum += A[right];
 
-        int[] sortedNums = selectionSort(nums);
-        System.out.println();
-        System.out.println("after sorting:");
-        for(int s : sortedNums)
-            System.out.print(s + " ");
-    }
-    public static int[]  selectionSort(int[] nums) {
-        for (int i = 0; i < nums.length - 1; i++) {
-            // for (int i = arr.length - 1; i >= 0; i--) { //Find the index of the maximum element
-            int minIndex = i;
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] < nums[minIndex]) { //find the minimum element, sort from lower to upper , ASC
-               // if (nums[j] > nums[minIndex]) { //sort from upper to lower, DESC
-                    minIndex = j;
-                }
+            while (sum > S) {
+                sum -= A[left];
+                left++;
             }
 
-            if (minIndex != i) {
-                int temp = nums[i];
-                nums[i] = nums[minIndex];
-                nums[minIndex] = temp;
+            if (sum == S) {
+                result.add(left + 1); // Adjusting to 1-based indexing
+                result.add(right + 1); // Adjusting to 1-based indexing
+                return result;
             }
+
+            right++;
         }
-        return nums;
+
+        result.add(-1);
+        return result;
     }
+
+    public static void main(String[] args) {
+        int[] A = {1, 4, 20, 3, 10, 5};
+        int S = 33;
+
+        ArrayList<Integer> result = findSubarray(A, S);
+        System.out.println(result);
+    }
+
 }
