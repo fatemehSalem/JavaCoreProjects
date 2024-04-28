@@ -1,36 +1,29 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RunnableClass {
 
 
-    public static int maxGap(int[] A) {
-        int n = A.length;
-        MyArray[] myArrays = new MyArray[n];
-
-        for (int i = 0; i < n; i++) {
-            myArrays[i] = new MyArray(A[i], i);
+    public static int maxSum(int[] arr) {
+        int maxSum = 0;
+        ArrayList<Integer> sumArray = new ArrayList<>();
+        for (int j : arr) {
+            maxSum = maxSum + j;
+            sumArray.add(maxSum);
         }
+        Integer[] sumArrayAsArray = sumArray.toArray(new Integer[0]);
 
-        Arrays.sort(myArrays);
+        Arrays.sort(sumArrayAsArray);
 
-        int maxGap = 0;
+        return sumArrayAsArray[sumArrayAsArray.length - 1];
 
-        for (int i = 1; i < n; i++) {
-            if(myArrays[i].number == myArrays[i-1].number){
-                maxGap = Math.max(maxGap, myArrays[i].index - myArrays[i-1].index);
-            } else{
-                maxGap = Math.max(maxGap, myArrays[i].index );
-            }
-        }
 
-        return maxGap;
     }
     public static void main(String[] args) {
-        int[] arr = {1,  9 , 2, 5, 6, 2, 1, 1, 9, 2};
+        int[] arr = {-1 , -2 , -3 , -4};
 
-
-        int result = maxGap(arr);
-        System.out.println("Maximum possible gap: " + result);
+        int result = maxSum(arr);
+        System.out.println("Maximum Sum: " + result);
     }
 }
