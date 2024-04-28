@@ -26,3 +26,4 @@ public class RunnableClass {
         System.out.println("Maximum Sum: " + result);
     }
 }
+
