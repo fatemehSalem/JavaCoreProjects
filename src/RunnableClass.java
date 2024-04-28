@@ -20,7 +20,6 @@ public class RunnableClass {
                 return result;
             }
 
-
             right++;
         }
 
@@ -35,5 +34,4 @@ public class RunnableClass {
         ArrayList<Integer> result = findSubarray(A, S);
         System.out.println(result);
     }
-
 }
