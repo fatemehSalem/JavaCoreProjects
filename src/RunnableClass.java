@@ -20,6 +20,7 @@ public class RunnableClass {
                 return result;
             }
 
+
             right++;
         }
 
