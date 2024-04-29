@@ -11,9 +11,12 @@ public class RunnableClass {
            count = 0;
            if(i == arr.length - 1)
                arrayList.add(arr[i]);
+
            for( int j = i + 1 ; j < arr.length  ; j++){
+
                if( arr[i] > arr[j]){
                    count ++;
+
                    if(count == arr.length - 1 - i)
                        arrayList.add(arr[i]);
                } else
