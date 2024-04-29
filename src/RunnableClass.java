@@ -1,32 +1,30 @@
+import java.util.ArrayList;
+
 public class RunnableClass {
 
 
-    public static int findEquilibriumPoint(int[] arr, int minIndex ) {
-        int sum1 = 0,sum2 = 0;
-        for(int i = 0 ; i < minIndex ; i ++)
-            sum1 = sum1 + arr[i];
-        for(int j = minIndex + 1 ; j < arr.length ; j ++)
-            sum2 = sum2 + arr[j];
+    public static ArrayList<Integer> findLeaders(int[] arr) {
+       ArrayList<Integer> arrayList = new ArrayList<>();
+       int count;
 
-        if(sum1 == sum2)
-            return minIndex;
-        else {
-            if(minIndex == arr.length -1)
-                return  0;
-            if(minIndex < arr.length && minIndex > 0){
-                if(sum1 < sum2)
-                    minIndex ++;
-                else
-                    minIndex --;
-
-                return findEquilibriumPoint(arr , minIndex );
-            }
-        }
-        return  0;
+       for(int i = 0 ; i < arr.length ; i++){
+           count = 0;
+           if(i == arr.length - 1)
+               arrayList.add(arr[i]);
+           for( int j = i + 1 ; j < arr.length  ; j++){
+               if( arr[i] > arr[j]){
+                   count ++;
+                   if(count == arr.length - 1 - i)
+                       arrayList.add(arr[i]);
+               } else
+                   break;
+           }
+       }
+       return arrayList;
     }
     public static void main(String[] args) {
-        int[] x = {1 , 3 , 5 , 8 , 9};
-        System.out.println("Equilibrium Point is: " + findEquilibriumPoint(x, x.length /2 ));
+        int[] x = {16 , 17 , 4 , 3 , 5 , 2};
+        System.out.println("leaders are: " + findLeaders(x ));
     }
 
 }
