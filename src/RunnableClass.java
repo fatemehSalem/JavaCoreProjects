@@ -1,17 +1,32 @@
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class RunnableClass {
 
 
-    public static int[] sort(int[] arr) {
-        Arrays.sort(arr);
+    public static ArrayList<Integer> sort(int[] arr) {
+        ArrayList<Integer> lst = new ArrayList<>();
 
-        return  arr;
+            for(int i : arr){
+                if(i == 0)
+                    lst.add(i);
+            }
+
+            for(int i : arr){
+                if(i == 1)
+                    lst.add(i);
+            }
+
+            for(int i : arr){
+                if(i == 2)
+                    lst.add(i);
+            }
+        return  lst;
     }
     public static void main(String[] args) {
         int[] x = {0 , 2 , 1 , 2 , 0};
-        int[] result = sort(x );
-        System.out.println("number of pairs is: " + Arrays.toString(result));
+        ArrayList<Integer> result = sort(x );
+        System.out.println("number of pairs is: " + result);
     }
 
 }
