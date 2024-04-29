@@ -1,31 +1,27 @@
-import java.util.ArrayList;
-
 public class RunnableClass {
 
 
-    public static ArrayList<Integer> sort(int[] arr) {
-        ArrayList<Integer> lst = new ArrayList<>();
+    public static int findEquilibriumPoint(int[] arr, int minIndex ) {
+        int sum1 = 0,sum2 = 0;
+        for(int i = 0 ; i < minIndex ; i ++)
+            sum1 = sum1 + arr[i];
+        for(int j = minIndex + 1 ; j < arr.length ; j ++)
+            sum2 = sum2 + arr[j];
 
-            for(int i : arr){
-                if(i == 0)
-                    lst.add(i);
-            }
+        if(sum1 == sum2)
+            return minIndex;
+        else {
+            if(sum1 < sum2)
+                minIndex ++;
+            else
+                minIndex --;
 
-            for(int i : arr){
-                if(i == 1)
-                    lst.add(i);
-            }
-
-            for(int i : arr){
-                if(i == 2)
-                    lst.add(i);
-            }
-        return  lst;
+            return findEquilibriumPoint(arr , minIndex );
+        }
     }
     public static void main(String[] args) {
-        int[] x = {0 , 2 , 1 , 2 , 0};
-        ArrayList<Integer> result = sort(x );
-        System.out.println("number of pairs is: " + result);
+        int[] x = {1 , 3 , 2 , 4 , 9 , 10};
+        System.out.println("Equilibrium Point is: " + findEquilibriumPoint(x, x.length /2 ));
     }
 
 }
