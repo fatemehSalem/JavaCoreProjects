@@ -14,6 +14,7 @@ public class RunnableClass {
                     lst.add(arr[length - count - 1 ]);
                 lst.add(arr[count]);
                 count ++;
+
             }
         } else{
             while(count <= (length / 2) ){
