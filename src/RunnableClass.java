@@ -11,6 +11,8 @@ public class RunnableClass {
         if(sum1 == sum2)
             return minIndex;
         else {
+            if(minIndex == arr.length -1)
+                return  0;
             if(minIndex < arr.length && minIndex > 0){
                 if(sum1 < sum2)
                     minIndex ++;
@@ -23,7 +25,7 @@ public class RunnableClass {
         return  0;
     }
     public static void main(String[] args) {
-        int[] x = {1 , 3 , 2 , 4 , 9 , 12};
+        int[] x = {1 , 3 , 5 , 8 , 9};
         System.out.println("Equilibrium Point is: " + findEquilibriumPoint(x, x.length /2 ));
     }
 
