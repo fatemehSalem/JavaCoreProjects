@@ -11,16 +11,19 @@ public class RunnableClass {
         if(sum1 == sum2)
             return minIndex;
         else {
-            if(sum1 < sum2)
-                minIndex ++;
-            else
-                minIndex --;
+            if(minIndex < arr.length && minIndex > 0){
+                if(sum1 < sum2)
+                    minIndex ++;
+                else
+                    minIndex --;
 
-            return findEquilibriumPoint(arr , minIndex );
+                return findEquilibriumPoint(arr , minIndex );
+            }
         }
+        return  0;
     }
     public static void main(String[] args) {
-        int[] x = {1 , 3 , 2 , 4 , 9 , 10};
+        int[] x = {1 , 3 , 2 , 4 , 9 , 12};
         System.out.println("Equilibrium Point is: " + findEquilibriumPoint(x, x.length /2 ));
     }
 
