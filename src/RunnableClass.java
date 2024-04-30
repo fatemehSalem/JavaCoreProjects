@@ -23,7 +23,6 @@ public class RunnableClass {
             }
             maxPlatforms = Math.max(maxPlatforms, platformNeeded);
         }
-
         return maxPlatforms;
     }
 
