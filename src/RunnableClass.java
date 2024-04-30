@@ -1,33 +1,38 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class RunnableClass {
 
+    public static int findMinimumPlatforms(double[] arrival, double[] departure) {
+        int n = arrival.length;
 
-    public static ArrayList<Integer> findLeaders(int[] arr) {
-       ArrayList<Integer> arrayList = new ArrayList<>();
-       int count;
+        Arrays.sort(arrival);
+        Arrays.sort(departure);
 
-       for(int i = 0 ; i < arr.length ; i++){
-           count = 0;
-           if(i == arr.length - 1)
-               arrayList.add(arr[i]);
+        int platformNeeded = 1;
+        int maxPlatforms = 1;
+        int i = 1, j = 0;
 
-           for( int j = i + 1 ; j < arr.length  ; j++){
+        while (i < n && j < n) {
+            if (arrival[i] < departure[j]) {
+                platformNeeded++;
+                i++;
+            } else {
+                platformNeeded--;
+                j++;
+            }
+            maxPlatforms = Math.max(maxPlatforms, platformNeeded);
+        }
 
-               if( arr[i] > arr[j]){
-                   count ++;
-
-                   if(count == arr.length - 1 - i)
-                       arrayList.add(arr[i]);
-               } else
-                   break;
-           }
-       }
-       return arrayList;
+        return maxPlatforms;
     }
+
     public static void main(String[] args) {
-        int[] x = {16 , 17 , 4 , 3 , 5 , 2};
-        System.out.println("leaders are: " + findLeaders(x ));
+        double[] arrival = {10.00, 10.30, 11.00, 11.30, 12.00};
+        double[] departure = {10.20, 11.20, 12.10, 12.30, 13.00};
+
+        int minPlatforms = findMinimumPlatforms(arrival, departure);
+        System.out.println("Minimum number of platforms is: " + minPlatforms);
     }
 
 }
