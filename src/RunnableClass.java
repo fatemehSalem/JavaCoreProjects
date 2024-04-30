@@ -34,6 +34,7 @@ public class RunnableClass {
         System.out.println("Minimum number of platforms is: " + minPlatforms);
     }
 
+
 }
 
 
