@@ -2,35 +2,59 @@ import java.util.Arrays;
 
 public class RunnableClass {
 
-    private static void  quickSort(int[] arr , int low , int high) {
-        if(low < high){
-            int pi = partition(arr ,  low , high);
+    private static void mergeSort(int[] arr , int left , int right){
+        if(left < right){
+            int mid = ( right + left ) / 2 ;
 
-            quickSort(arr, low , pi -1); // for sorting and partitioning the right side
-            quickSort(arr , pi + 1 , high); // for sorting and partitioning the left side
+            mergeSort(arr  , left , mid);
+            mergeSort(arr , mid + 1 , right);
+
+            mergeFunc(arr , left , mid , right);
         }
     }
-    private static int partition(int[] arr , int low , int high){
-        int pivot = arr[high] , i = low - 1;
-        for(int j = low ; j <= high ; j++){
-            if(arr[j] < pivot){
+    private static  void mergeFunc(int[] arr , int left , int mid , int right){
+        int n = mid - left + 1;
+        int m = right - mid;
+        int i, j, k = left;
+
+        int[] leftArr = new int[n];
+        int[] rightArr = new int[m];
+
+        for(i = 0 ; i < n ; i++)
+            leftArr[i] = arr[left + i];
+        for(j = 0 ; j < m ; j++)
+            rightArr[j] = arr[mid + 1 + j];
+
+        i = 0;
+        j = 0;
+
+        while(i < n && j < m){
+            if(leftArr[i] < rightArr[j]){
+                arr[k] = leftArr[i];
                 i++;
-                swap(arr , i , j);
+
+            } else{
+                arr[k] = rightArr[j];
+                j++;
             }
+            k++;
         }
-        swap(arr , i+1 , high);
-        return i+1;
-    }
 
-    private static void swap(int[] arr, int i, int j) {
-        int temp = arr[j];
-        arr[j] = arr[i];
-        arr[i] = temp;
-    }
+        while (i < n) {
+            arr[k] = leftArr[i];
+            i++;
+            k++;
+        }
 
+        while (j < m) {
+            arr[k] = rightArr[j];
+            j++;
+            k++;
+        }
+    }
     public static void main(String[] args) {
         int[] arr = {1 , 7 , 5 , 13 , 22 , 10};
-        quickSort(arr, 0, arr.length - 1);
+        mergeSort(arr, 0 , arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
 
