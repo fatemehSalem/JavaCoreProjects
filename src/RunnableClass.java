@@ -13,7 +13,6 @@ public class RunnableClass {
         }
 
         return  arr;
-
     }
 
     public static void main(String[] args) {
