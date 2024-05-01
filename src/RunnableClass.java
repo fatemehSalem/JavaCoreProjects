@@ -2,23 +2,37 @@ import java.util.Arrays;
 
 public class RunnableClass {
 
-    public static int[]  reverseArray(int[] arr , int subArrayLength) {
-        int temp ;
-        for(int i = 0 ; i < subArrayLength ; i++){
-            if(arr[i] < arr[i+1]){
-                temp = arr[i];
-                arr[i] = arr[i+1];
-                arr[i+1] = temp;
+    private static void  quickSort(int[] arr , int low , int high) {
+        if(low < high){
+            int pi = partition(arr ,  low , high);
+
+            quickSort(arr, low , pi -1); // for sorting and partitioning the right side
+            quickSort(arr , pi + 1 , high); // for sorting and partitioning the left side
+        }
+    }
+
+    private static int partition(int[] arr , int low , int high){
+        int pivot = arr[high] , i = low - 1;
+        for(int j = low ; j <= high ; j++){
+            if(arr[j] < pivot){
+                i++;
+                swap(arr , i , j);
             }
         }
+        swap(arr , i+1 , high);
+        return i+1;
+    }
 
-        return  arr;
+    public static void swap(int[] arr, int i, int j) {
+        int temp = arr[j];
+        arr[j] = arr[i];
+        arr[i] = temp;
     }
 
     public static void main(String[] args) {
-        int[] arr = {1 , 3 , 2 , 10 , 13};
-        int[]  minPlatforms = reverseArray(arr , 3);
-        System.out.println("Minimum number of platforms is: " + Arrays.toString(minPlatforms));
+        int[] arr = {1 , 7 , 5 , 13 , 22 , 10};
+        quickSort(arr, 0, arr.length - 1);
+        System.out.println(Arrays.toString(arr));
     }
 
 }
