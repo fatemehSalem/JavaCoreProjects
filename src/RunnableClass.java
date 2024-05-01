@@ -2,35 +2,24 @@ import java.util.Arrays;
 
 public class RunnableClass {
 
-    public static int findMinimumPlatforms(double[] arrival, double[] departure) {
-        int n = arrival.length;
-
-        Arrays.sort(arrival);
-        Arrays.sort(departure);
-
-        int platformNeeded = 1;
-        int maxPlatforms = 1;
-        int i = 1, j = 0;
-
-        while (i < n && j < n) {
-            if (arrival[i] < departure[j]) {
-                platformNeeded++;
-                i++;
-            } else {
-                platformNeeded--;
-                j++;
+    public static int[]  reverseArray(int[] arr , int subArrayLength) {
+        int temp ;
+        for(int i = 0 ; i < subArrayLength ; i++){
+            if(arr[i] < arr[i+1]){
+                temp = arr[i];
+                arr[i] = arr[i+1];
+                arr[i+1] = temp;
             }
-            maxPlatforms = Math.max(maxPlatforms, platformNeeded);
         }
-        return maxPlatforms;
+
+        return  arr;
+
     }
 
     public static void main(String[] args) {
-        double[] arrival = {10.00, 10.30, 11.00, 11.30, 12.00};
-        double[] departure = {10.20, 11.20, 12.10, 12.30, 13.00};
-
-        int minPlatforms = findMinimumPlatforms(arrival, departure);
-        System.out.println("Minimum number of platforms is: " + minPlatforms);
+        int[] arr = {1 , 3 , 2 , 10 , 13};
+        int[]  minPlatforms = reverseArray(arr , 3);
+        System.out.println("Minimum number of platforms is: " + Arrays.toString(minPlatforms));
     }
 
 
