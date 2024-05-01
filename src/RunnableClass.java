@@ -57,7 +57,6 @@ public class RunnableClass {
         mergeSort(arr, 0 , arr.length - 1);
         System.out.println(Arrays.toString(arr));
     }
-
 }
 
 
