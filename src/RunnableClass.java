@@ -28,6 +28,7 @@ public class RunnableClass {
         arr[i] = temp;
     }
 
+
     public static void main(String[] args) {
         int[] arr = {1 , 7 , 5 , 13 , 22 , 10};
         quickSort(arr, 0, arr.length - 1);
