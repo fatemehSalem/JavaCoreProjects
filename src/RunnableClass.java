@@ -10,7 +10,6 @@ public class RunnableClass {
             quickSort(arr , pi + 1 , high); // for sorting and partitioning the left side
         }
     }
-
     private static int partition(int[] arr , int low , int high){
         int pivot = arr[high] , i = low - 1;
         for(int j = low ; j <= high ; j++){
