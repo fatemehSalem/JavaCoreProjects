@@ -12,8 +12,9 @@ public class RunnableClass {
     }
     private static int partition(int[] arr , int low , int high){
         int pivot = arr[high] , i = low - 1;
-        for(int j = low ; j <= high ; j++){
-            if(arr[j] < pivot){
+        for(int j = low ; j < high ; j++){
+            if(arr[j] > pivot){ //descending
+            // if(arr[j] < pivot){ //ascending
                 i++;
                 swap(arr , i , j);
             }
@@ -21,6 +22,7 @@ public class RunnableClass {
         swap(arr , i+1 , high);
         return i+1;
     }
+
 
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
