@@ -2,24 +2,25 @@ import java.util.Arrays;
 
 public class RunnableClass {
 
-    public static void  reverseArray(int[] arr , int low , int k) {
-        if(low < k){
-            int pi = partition(arr , low , k);
-            reverseArray(arr , pi + 1 , k);
+    public static void  quickSort(int[] arr , int low , int high) {
+        if(low < high){
+            int pi = partition(arr , low , high);
+            quickSort(arr , low , pi - 1);
+            quickSort(arr , pi + 1 , high);
         }
     }
 
-    public static int partition(int[] arr , int low , int k){
-        int pi = arr[k];
+    public static int partition(int[] arr , int low , int high){
+        int pi = arr[high];
         int i = low -1 ;
 
-         for(int j = low ; j < k ; j++){
-             if(arr[j] > pi){
+         for(int j = low ; j < high ; j++){
+             if(arr[j] < pi){
                  i ++ ;
                  swap(arr , i , j);
              }
          }
-         swap(arr , i + 1 , k);
+         swap(arr , i + 1 , high);
          return i+1;
     }
 
@@ -31,10 +32,9 @@ public class RunnableClass {
 
     public static void main(String[] args) {
         int[] arr = {10 , 2  , 13 , 7 , 11 , 3 , 9};
-        int k = 5;
-        reverseArray(arr ,  0 ,  k -1);
-        reverseArray(arr ,  k ,  arr.length - 1);
-        System.out.println("Minimum number of platforms is: " + Arrays.toString(arr));
+        int k = 4;
+        quickSort(arr ,  0 , arr.length -1);
+        System.out.println("kth smallest element is: " + arr[k - 1]);
     }
 
 }
