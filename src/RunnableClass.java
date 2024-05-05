@@ -39,7 +39,7 @@ public class RunnableClass {
         return -1;
     }
     public static void main(String[] args) {
-        int[] arr = {8, 2, 4, 6, 5 , 12};
+        int[] arr = {20, 2, 4, 6, 5 , 12 , 99 , 101};
         System.out.println("Is there a Pythagorean triplet? "  + isPythagoreanTriplet(arr));
     }
 
