@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class RunnableClass {
 
     public static void  quickSort(int[] arr , int low , int high) {
