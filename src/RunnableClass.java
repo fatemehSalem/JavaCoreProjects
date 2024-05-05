@@ -1,38 +1,33 @@
 public class RunnableClass {
+    public static int trap(int[] height) {
+        if (height == null || height.length <= 2)
+            return 0;
 
-    public static void  quickSort(int[] arr , int low , int high) {
-        if(low < high){
-            int pi = partition(arr , low , high);
-            quickSort(arr , low , pi - 1);
-            quickSort(arr , pi + 1 , high);
+        int n = height.length;
+        int[] leftMax = new int[n];
+        int[] rightMax = new int[n];
+
+        leftMax[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            leftMax[i] = Math.max(leftMax[i - 1], height[i]);
         }
-    }
 
-    public static int partition(int[] arr , int low , int high){
-        int pi = arr[high];
-        int i = low -1 ;
+        rightMax[n - 1] = height[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            rightMax[i] = Math.max(rightMax[i + 1], height[i]);
+        }
 
-         for(int j = low ; j < high ; j++){
-             if(arr[j] < pi){
-                 i ++ ;
-                 swap(arr , i , j);
-             }
-         }
-         swap(arr , i + 1 , high);
-         return i+1;
-    }
+        int waterTrapped = 0;
+        for (int i = 0; i < n; i++) {
+            waterTrapped += Math.min(leftMax[i], rightMax[i]) - height[i];
+        }
 
-    public static void swap(int[] arr , int i , int j){
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        return waterTrapped;
     }
 
     public static void main(String[] args) {
-        int[] arr = {10 , 2  , 13 , 7 , 11 , 3 , 9};
-        int k = 4;
-        quickSort(arr ,  0 , arr.length -1);
-        System.out.println("kth smallest element is: " + arr[k - 1]);
+        int[] arr = {6 , 9 , 9};
+        System.out.println("Amount of water trapped: " + trap(arr));
     }
 
 }
