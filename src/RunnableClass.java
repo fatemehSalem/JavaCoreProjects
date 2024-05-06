@@ -1,30 +1,16 @@
-import java.util.Arrays;
-
 public class RunnableClass {
-    public static int[] zigZag(int[] arr) {
-        int n = arr.length, mid = n / 2 , increment = 1 ;
-
-        Arrays.sort(arr);
-
-        int[] tempArray = new int[n];
-
-        for(int i = 0 ; i < mid ; i++){
-            tempArray[2 * i] = arr[i];
+    public static int findLastIndex(int[] arr) {
+        int n = arr.length, index = -1 ;
+        for(int i = 0 ; i < n ; i++){
+            if(arr[i] == 1)
+                index  = i;
         }
-
-        for(int k = n - 1 ; k >= mid ; k--){
-            if(increment == n)
-                tempArray[increment -1] = arr[k];
-            else
-                tempArray[increment] = arr[k];
-            increment = increment +2;
-        }
-        return tempArray;
+       return index;
     }
 
     public static void main(String[] args) {
-        int[] arr = {4, 3, 7, 8, 6, 2, 1 , 11};
-        System.out.println("Is there a Pythagorean triplet? "  + Arrays.toString(zigZag(arr)));
+        int[] arr = {0 , 0 , 4 , 1 , 6 , 0 , 0 , 1};
+        System.out.println("Is there a Pythagorean triplet? "  + findLastIndex(arr));
     }
 
 }
