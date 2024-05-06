@@ -10,7 +10,7 @@ public class RunnableClass {
 
     public static void main(String[] args) {
         int[] arr = {0 , 0 , 4 , 1 , 6 , 0 , 0 , 1};
-        System.out.println("Is there a Pythagorean triplet? "  + findLastIndex(arr));
+        System.out.println("Last index of 1 is: "  + findLastIndex(arr));
     }
 
 }
