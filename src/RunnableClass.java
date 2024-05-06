@@ -13,14 +13,17 @@ public class RunnableClass {
         }
 
         for(int k = n - 1 ; k >= mid ; k--){
-            tempArray[increment] = arr[k];
+            if(increment == n)
+                tempArray[increment -1] = arr[k];
+            else
+                tempArray[increment] = arr[k];
             increment = increment +2;
         }
         return tempArray;
     }
 
     public static void main(String[] args) {
-        int[] arr = {4, 3, 7, 8, 6, 2, 1};
+        int[] arr = {4, 3, 7, 8, 6, 2, 1 , 11};
         System.out.println("Is there a Pythagorean triplet? "  + Arrays.toString(zigZag(arr)));
     }
 
