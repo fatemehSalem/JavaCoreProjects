@@ -1,21 +1,17 @@
+import java.util.HashMap;
+import java.util.Map;
 
 public class RunnableClass {
-    public static String findIndexes(int[] arr , int s){
-        String result;
-        for(int i = 0 ; i < arr.length ; i++){
-            int sum = 0;
-           for(int j = i + 1 ; j < arr.length ; j++){
-               if(j == i + 1)
-                    sum = sum + arr[i] + arr[j];
-               else
-                   sum = sum + arr[j];
-               if(sum > s)
-                   break;
-               else if(sum == s){
-                   result =(i + 1) + "" + (j + 1) + "";
-                   return result;
-               }
-           }
+    public static String findIndexes(int[] arr, int s) {
+        Map<Integer, Integer> map = new HashMap<>();
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+            if (sum == s)
+                return "1" + (i + 1);
+            if (map.containsKey(sum - s))
+                return (map.get(sum - s) + 1) + "" + (i + 1);
+            map.put(sum, i);
         }
         return null;
     }
