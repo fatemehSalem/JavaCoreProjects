@@ -13,7 +13,6 @@ public class RunnableClass {
         for (String num : arr) {
             result.append(num);
         }
-
         System.out.println("Largest possible number: " + result);
     }
     }
