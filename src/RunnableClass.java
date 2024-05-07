@@ -28,5 +28,4 @@ public class RunnableClass {
         else
             System.out.println("The result has not been found!");
     }
-
 }
