@@ -15,7 +15,6 @@ public class RunnableClass {
                    result =(i + 1) + "" + (j + 1) + "";
                    return result;
                }
-
            }
         }
         return null;
