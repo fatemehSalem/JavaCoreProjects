@@ -15,6 +15,7 @@ public class RunnableClass {
         return count;
       
     }
+
     public static int binarySearch(int[] arr, int x) {
             int left = 0, right = arr.length - 1;
             while (left <= right) {
@@ -28,6 +29,7 @@ public class RunnableClass {
             }
             return -1;
         }
+
     public static void main(String[] args) {
         int[] arr = {1, 5, 3, 2};
         System.out.println("There are " + countTriplets(arr) + " triplets");
