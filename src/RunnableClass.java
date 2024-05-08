@@ -1,22 +1,22 @@
-
-import java.util.Arrays;
-
 public class RunnableClass {
 
 
-    public static int maxMissingNumber(int[] arr) {
-        Arrays.sort(arr);
+    public static StringBuilder reverseWords(String s) {
+        String[] splitString = s.split("\\.");
+        StringBuilder stringBuilder = new StringBuilder();
+        for(int i = splitString.length - 1 ; i >= 0 ; i--){
+            if(i == 0)
+                stringBuilder.append(splitString[i]);
+            else
+                stringBuilder.append(splitString[i]).append(".");
 
-        for(int i = 0 ; i < arr.length ; i++){
-            if(arr[i] + 1 != arr[i + 1])
-                return arr[i] + 1;
         }
-        return 0;
+        return stringBuilder;
     }
     public static void main(String[] args) {
-        int[] arr = { -1 , 2 , 0 , 3};
+        String s = "i.like.this.program.very.much";
 
-        int result = maxMissingNumber(arr);
+        StringBuilder result = reverseWords(s);
         System.out.println("missing number is: " + result);
     }
 }
