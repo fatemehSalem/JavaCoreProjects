@@ -33,7 +33,6 @@ public class RunnableClass {
         int[] arr = {1, 5, 3, 2};
         System.out.println("There are " + countTriplets(arr) + " triplets");
     }
-
 }
 
 
