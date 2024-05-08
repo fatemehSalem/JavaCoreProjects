@@ -13,7 +13,6 @@ public class RunnableClass {
             }
         }
         return count;
-      
     }
 
     public static int binarySearch(int[] arr, int x) {
