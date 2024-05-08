@@ -1,6 +1,5 @@
 public class RunnableClass {
 
-
     public static StringBuilder reverseWords(String s) {
         String[] splitString = s.split("\\.");
         StringBuilder stringBuilder = new StringBuilder();
