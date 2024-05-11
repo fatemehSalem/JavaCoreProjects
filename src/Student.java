@@ -1,35 +1,22 @@
-public class Student {
-    private int id;
-    private String name;
-    private Long studentId;
+public class Student implements Comparable<Student> {
+    public int age;
+    public String name;
 
-    public Student(int id , String name , Long studentId){
-        this.id = id;
-        this.name = name;
-        this.studentId = studentId;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
+    public Student(int age , String name ){
+        this.age = age;
         this.name = name;
     }
 
-    public Long getStudentId() {
-        return studentId;
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + age +
+                ", name='" + name + '\'' +
+                '}';
     }
 
-    public void setStudentId(Long studentId) {
-        this.studentId = studentId;
+    @Override
+    public int compareTo(Student o) {
+        return this.age > o.age? 1 : -1;
     }
 }
