@@ -1,22 +1,23 @@
+import com.sun.source.tree.Tree;
+
+import java.util.*;
+
 public class RunnableClass {
 
-    public static StringBuilder reverseWords(String s) {
-        String[] splitString = s.split("\\.");
-        StringBuilder stringBuilder = new StringBuilder();
-        for(int i = splitString.length - 1 ; i >= 0 ; i--){
-            if(i == 0)
-                stringBuilder.append(splitString[i]);
-            else
-                stringBuilder.append(splitString[i]).append(".");
+    public static void main(String[] args)
+    {
+        HashMap<String , Integer> hashMap = new HashMap<>();
+        hashMap.put("Ali" , 1);
+        hashMap.put("Mohammad-Javad" , 2);
+        hashMap.put("Mohammad-Mahdi" , 3);
 
+        hashMap.putIfAbsent("Mohammad-Mahdi" , 16);
+
+        hashMap.put("Mohammad-Mahdi" , 16);
+
+        for(String key : hashMap.keySet()){
+            System.out.println(key + " : "  + hashMap.get(key)  );
         }
-        return stringBuilder;
-    }
-    public static void main(String[] args) {
-        String s = "i.like.this.program.very.much";
-
-        StringBuilder result = reverseWords(s);
-        System.out.println("missing number is: " + result);
     }
 }
 
