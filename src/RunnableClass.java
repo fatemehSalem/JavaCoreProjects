@@ -12,19 +12,11 @@ public class RunnableClass {
         list.add(55);
         list.add(51);
 
-        list.sort((o1, o2) -> {
-            if (o1 % 10 > o2 % 10)
-                return 1;
-            else if(o1 % 10 == o2 % 10)
-                return 0;
-            else
-                return -1;
-        });
+        list.sort((o1, o2) -> o1 % 10 > o2 % 10 ? 1: -1);
 
         for(Integer i : list){
             System.out.println(i);
         }
-
     }
 }
 
