@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class RunnableClass {
-
     public static void main(String[] args)
     {
         List<Integer> list = new ArrayList<>();
