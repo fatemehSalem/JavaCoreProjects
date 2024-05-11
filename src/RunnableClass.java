@@ -13,9 +13,9 @@ public class RunnableClass {
 
         list.sort((o1, o2) -> o1 % 10 > o2 % 10 ? 1: -1);
 
-        for(Integer i : list){
+        for(Integer i : list)
             System.out.println(i);
-        }
+
     }
 }
 
