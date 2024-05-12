@@ -19,4 +19,5 @@ public class Student implements Comparable<Student> {
     public int compareTo(Student other) {
         return  this.name.compareToIgnoreCase(other.name);
     }
+
 }
