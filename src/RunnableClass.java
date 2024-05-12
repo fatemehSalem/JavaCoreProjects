@@ -10,9 +10,7 @@ public class RunnableClass {
         list.add(new Student(23 , "Mark"));
         list.add(new Student(11 , "Sarah"));
 
-
         Collections.sort(list);
-
 
         for(Student i : list)
             System.out.println(i);
