@@ -14,7 +14,6 @@ public class RunnableClass {
 
         for(Student i : list)
             System.out.println(i);
-
     }
 }
 
