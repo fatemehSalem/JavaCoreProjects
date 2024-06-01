@@ -5,16 +5,14 @@ public class PollingExample {
     public static void main(String[] args) throws InterruptedException {
         Thread workerThread = new Thread(new Worker());
         Thread pollerThread = new Thread(new Poller());
-
         workerThread.start();
         pollerThread.start();
-
+        // Wait for worker thread to finish
         workerThread.join();
+        // Wait for poller thread to finish
         pollerThread.join();
-
         System.out.println("Main: Both threads have completed");
     }
-
     static class Worker implements Runnable {
         @Override
         public void run() {
@@ -29,7 +27,6 @@ public class PollingExample {
             System.out.println("Worker: Task completed");
         }
     }
-
     static class Poller implements Runnable {
         @Override
         public void run() {
