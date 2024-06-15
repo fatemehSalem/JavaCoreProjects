@@ -1,8 +1,7 @@
 public class RunGenerics {
     public static void main(String[] args) {
-        Box<Integer> box = new Box<>(11);
-        Box<String> box2 = new Box<>("hello");
-        System.out.println(box.getItem().getClass().getName());
-        System.out.println(box2.getItem().getClass().getName());
+    Box<Integer , Double> box = new Box<>(10 , 20.08);
+    System.out.println(box.multiItems());
+
     }
 }
