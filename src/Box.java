@@ -1,5 +1,6 @@
+import java.util.List;
 
-        public class Box<T, V extends Number> {
+public class Box<T, V extends Number> {
 
             private T item;
             private V externalItem;
@@ -27,5 +28,9 @@
 
             public static <T extends Number> void processNumbers(T num) {
                 System.out.println(num.doubleValue());
+            }
+
+            public static void addToList(List<? super Integer> list) {
+                list.add(123);
             }
         }
