@@ -1,11 +1,15 @@
-import java.util.Optional;
+
 
 public class OptionalRunning {
     public static void main(String[] args) {
 
-      Optional<String> optional = Optional.empty();
+      Car car = new Car("Hyunda ELANTRA" , "2020");
 
-     optional.map(String::toUpperCase)
-                      .ifPresent(System.out::println);
+        if(car.getModel().isPresent()){
+            String model = car.getModel().get();
+            System.out.println(model.toUpperCase());
+        } else{
+            System.out.println("model is not provided!");
+        }
     }
 }
