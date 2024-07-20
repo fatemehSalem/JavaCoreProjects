@@ -1,15 +1,15 @@
-interface myInt {
 
-    int add(int a, int b);
-}
 public class RunVariables {
 
     public static void main(String[] args) {
+        int x = 10;  // Stored in stack
+        RunVariables example = new RunVariables();  // Reference stored in stack, object stored in heap
+        example.display();
+    }
 
-        // var cannot be used since they
-        // require explicit target type
-        myInt obj = (a, b) -> (a + b);
-
-        System.out.println(obj.add(2, 3));
+    public void display() {
+        int y = 20;  // Stored in stack
+        String message = "Hello, Stack and Heap!";  // Reference stored in stack, object stored in heap
+        System.out.println(message);  // Reference to the String object
     }
 }
