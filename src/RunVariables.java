@@ -2,7 +2,7 @@
 public class RunVariables {
 
     public static void main(String[] args) {
-        int x = 10;  // Stored in stack
+         int x = 10;  // Stored in stack
         RunVariables example = new RunVariables();  // Reference stored in stack, object stored in heap
         example.display();
     }
