@@ -1,2 +1,2 @@
-public class ClassA {
+public interface ClassA extends ClassB,ClassC,ClassD{
 }

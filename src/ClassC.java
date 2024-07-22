@@ -1,2 +1,3 @@
-public class ClassC {
+public interface ClassC {
+    void methodC();
 }
