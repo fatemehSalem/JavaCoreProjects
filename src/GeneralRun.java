@@ -1,8 +1,11 @@
 public class GeneralRun {
     public static void main(String[] args) {
         Parent p = new Child(); //UpCasting
-       // p.showChild(); we dont access to Child's method
-        p.showParent();
-        p.show();
+       if(p instanceof Child){
+           Child c = (Child) p;
+           c.showChild();
+       } else{
+           System.out.println("p is not instance of Child");
+       }
     }
 }
