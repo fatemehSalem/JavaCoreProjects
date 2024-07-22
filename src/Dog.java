@@ -3,7 +3,7 @@ public class Dog extends Animal{
     public void makeSound() {
         System.out.println("Dog sound! Huff Huff...");
     }
-    public void identify() {
+    public void identify() { //common with SuperClass
         System.out.println("I am a Dog!");
     }
 
