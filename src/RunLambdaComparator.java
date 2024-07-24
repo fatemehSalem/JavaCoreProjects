@@ -13,5 +13,19 @@ public class RunLambdaComparator {
         Arrays.sort(nums2 , Comparator.naturalOrder());
         for(Integer i : nums2)
             System.out.println(i);
+
+        System.out.println("************************");
+        //sort an array based on a custom condition where the sorting depends on
+        // whether the sum of two numbers is greater than twice their difference:
+
+        List<Integer> myNums = Arrays.asList( 25 , 1 , 41 , 29 , 10 , 19);
+        myNums.sort((o1 , o2) ->{
+            int sum = o1 + o2;
+            int diff = 2 * (o1 - o2);
+            return Integer.compare(diff , sum);
+        });
+
+        for(Integer i : myNums)
+            System.out.println(i);
     }
 }
