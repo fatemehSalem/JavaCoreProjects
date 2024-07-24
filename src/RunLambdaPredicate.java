@@ -4,7 +4,7 @@ import java.util.stream.Collectors;
 
 public class RunLambdaPredicate {
     public static void main(String[] args) {
-        //************* without lambda ****************8//
+        //************* without lambda ****************//
         //arrays can indeed be converted to stream using the Arrays.stream method or the Stream.of method.
         // While directly calling stream() on an array like you can on a collection (e.g., List) is not possible,
         String[] names = {"Apple", "Banana", "Avocado", "Cherry"};
