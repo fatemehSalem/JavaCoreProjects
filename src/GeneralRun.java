@@ -3,10 +3,12 @@ import java.util.Comparator;
 
 public class GeneralRun {
     public static void main(String[] args) {
-        String[] names = {"Alice" , "Sarah" , "Zahra" , "Ali"};
-        Arrays.sort(names, Comparator.naturalOrder());
-        for(String s:names)
-            System.out.println(s);
-
+      String[] names = {"Sarah" , "Ali" , "Alice" , "Fatemeh"};
+        Arrays.sort(names, new Comparator<String>() {
+            @Override
+            public int compare(String o1, String o2) {
+                return 0;
+            }
+        });
     }
 }
