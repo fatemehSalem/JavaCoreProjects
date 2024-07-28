@@ -3,9 +3,17 @@ public class GeneralRun {
         ThreadA threadA = new ThreadA();
         ThreadB threadB = new ThreadB();
 
-        threadB.setPriority(Thread.MAX_PRIORITY);
+        threadA.setPriority(Thread.MAX_PRIORITY);
+        threadB.setPriority(1);
 
-        threadA.start();
         threadB.start();
+        threadA.start();
+
+
+//        threadB.setPriority(Thread.MAX_PRIORITY);
+//        threadA.setPriority(1);
+//
+//        threadB.start();
+//        threadA.start();
     }
 }
