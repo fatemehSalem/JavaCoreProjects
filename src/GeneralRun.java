@@ -4,7 +4,7 @@ public class GeneralRun {
         ThreadB threadB = new ThreadB();
 
         threadA.setPriority(Thread.MAX_PRIORITY);
-        threadB.setPriority(1);
+        threadB.setPriority(Thread.MIN_PRIORITY);
 
         threadB.start();
         threadA.start();
