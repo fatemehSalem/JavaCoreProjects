@@ -14,7 +14,7 @@ public class SelectionSort {
         }
     }
     public static void main(String[] args) {
-        int[] nums = {64, 25, 12, 22, 11};
+        int[] nums = {4 , 2 , 10 , 1};
         selectionSort(nums);
         System.out.println("Sorted array:");
         for (int num : nums) {
