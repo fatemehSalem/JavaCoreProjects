@@ -2,20 +2,19 @@ public class ThreadStatesExample {
     private static final Object lock = new Object();
 
     public static void main(String[] args) throws InterruptedException {
-        Thread newThread = new Thread(new RunnableTask(), "NewThread");
+        // Thread in NEW state
+        Thread thread = new Thread(new RunnableTask(), "DemoThread");
+        System.out.println(thread.getName() + " state: " + thread.getState());
 
-        // New state (Thread created but not started)
-        System.out.println(newThread.getName() + " state: " + newThread.getState());
+        // Start the thread (RUNNABLE state)
+        thread.start();
+        System.out.println(thread.getName() + " state after start: " + thread.getState());
 
-        // Start the thread, moving it to Runnable state
-        newThread.start();
-        System.out.println(newThread.getName() + " state after start: " + newThread.getState());
-
-        // Ensure the thread has started and is in runnable state
+        // Sleep to allow thread to start and print its state
         Thread.sleep(100);
-        System.out.println(newThread.getName() + " state after sleep: " + newThread.getState());
+        System.out.println(thread.getName() + " state while running: " + thread.getState());
 
-        // Create a thread to demonstrate Blocked state
+        // Create another thread to demonstrate BLOCKED state
         Thread blockedThread = new Thread(() -> {
             synchronized (lock) {
                 System.out.println(Thread.currentThread().getName() + " acquired lock");
@@ -24,12 +23,11 @@ public class ThreadStatesExample {
 
         synchronized (lock) {
             blockedThread.start();
-            // Ensure blockedThread tries to acquire the lock
-            Thread.sleep(100);
-            System.out.println(blockedThread.getName() + " state: " + blockedThread.getState());
+            Thread.sleep(100); // Ensure blockedThread tries to acquire the lock
+            System.out.println(blockedThread.getName() + " state (expected BLOCKED): " + blockedThread.getState());
         }
 
-        // Waiting state
+        // Demonstrate WAITING state
         Thread waitingThread = new Thread(() -> {
             synchronized (lock) {
                 try {
@@ -42,13 +40,12 @@ public class ThreadStatesExample {
 
         synchronized (lock) {
             waitingThread.start();
-            // Ensure waitingThread calls wait()
-            Thread.sleep(100);
-            System.out.println(waitingThread.getName() + " state: " + waitingThread.getState());
-            lock.notify();
+            Thread.sleep(100); // Ensure waitingThread calls wait()
+            System.out.println(waitingThread.getName() + " state (expected WAITING): " + waitingThread.getState());
+            lock.notify(); // Wake up the waiting thread
         }
 
-        // Timed Waiting state
+        // Demonstrate TIMED_WAITING state
         Thread timedWaitingThread = new Thread(() -> {
             synchronized (lock) {
                 try {
@@ -61,23 +58,23 @@ public class ThreadStatesExample {
 
         synchronized (lock) {
             timedWaitingThread.start();
-            // Ensure timedWaitingThread calls wait with timeout
-            Thread.sleep(100);
-            System.out.println(timedWaitingThread.getName() + " state: " + timedWaitingThread.getState());
+            Thread.sleep(100); // Ensure timedWaitingThread calls wait with timeout
+            System.out.println(timedWaitingThread.getName() + " state (expected TIMED_WAITING): " + timedWaitingThread.getState());
         }
 
-        // Join all threads to ensure they complete
-        newThread.join();
+        // Wait for the main thread to finish
+        thread.join();
         blockedThread.join();
         waitingThread.join();
         timedWaitingThread.join();
 
-        // Terminated state
-        System.out.println(newThread.getName() + " state after join: " + newThread.getState());
+        // Check the state after completion (TERMINATED state)
+        System.out.println(thread.getName() + " state after join: " + thread.getState());
         System.out.println(blockedThread.getName() + " state after join: " + blockedThread.getState());
         System.out.println(waitingThread.getName() + " state after join: " + waitingThread.getState());
         System.out.println(timedWaitingThread.getName() + " state after join: " + timedWaitingThread.getState());
     }
+
     static class RunnableTask implements Runnable {
         @Override
         public void run() {
@@ -85,7 +82,7 @@ public class ThreadStatesExample {
             for (int i = 0; i < 5; i++) {
                 System.out.println(Thread.currentThread().getName() + " is running");
                 try {
-                    Thread.sleep(500);
+                    Thread.sleep(500); // Sleep to simulate work
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
