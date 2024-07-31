@@ -5,7 +5,6 @@ public class RunnableClass {
     private static void  quickSort(int[] arr , int low , int high) {
         if(low < high){
             int pi = partition(arr ,  low , high);
-
             quickSort(arr, low , pi -1); // for sorting and partitioning the right side
             quickSort(arr , pi + 1 , high); // for sorting and partitioning the left side
         }
@@ -22,14 +21,11 @@ public class RunnableClass {
         swap(arr , i+1 , high);
         return i+1;
     }
-
-
     private static void swap(int[] arr, int i, int j) {
         int temp = arr[j];
         arr[j] = arr[i];
         arr[i] = temp;
     }
-
     public static void main(String[] args) {
         int[] arr = {1 , 7 , 5 , 13 , 22 , 10};
         quickSort(arr, 0, arr.length - 1);
