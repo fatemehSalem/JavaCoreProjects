@@ -3,7 +3,7 @@ public class BinarySearch {
         int left = 0;
         int right = array.length - 1;
         while (left <= right) {
-            int mid = left + (right - left) / 2;
+            int mid =  (right + left) / 2;
             if (array[mid] == target) {
                 return mid;
             }
@@ -18,8 +18,8 @@ public class BinarySearch {
     }
 
     public static void main(String[] args) {
-        int[] array = {2, 3, 4, 10, 40};
-        int target = 10;
+        int[] array = {2, 3, 4, 10, 40 , 400};
+        int target = 400;
         int result = binarySearch(array, target);
 
         if (result == -1) {
