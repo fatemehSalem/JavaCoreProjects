@@ -14,7 +14,15 @@ public class ThreadStatesExample {
         Thread.sleep(100);
         System.out.println(thread.getName() + " state while running: " + thread.getState());
 
-        // Create another thread to demonstrate BLOCKED state
+/*        Thread bThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                synchronized (lock) {
+                    System.out.println(Thread.currentThread().getName());
+                }
+            }
+        });*/
+
         Thread blockedThread = new Thread(() -> {
             synchronized (lock) {
                 System.out.println(Thread.currentThread().getName() + " acquired lock");
@@ -23,7 +31,7 @@ public class ThreadStatesExample {
 
         synchronized (lock) {
             blockedThread.start();
-            Thread.sleep(100); // Ensure blockedThread tries to acquire the lock
+            Thread.sleep(100);
             System.out.println(blockedThread.getName() + " state (expected BLOCKED): " + blockedThread.getState());
         }
 
