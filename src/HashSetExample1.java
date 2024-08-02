@@ -16,6 +16,7 @@ public class HashSetExample1 {
             arrayList.forEach(System.out::println);
         });
 
-       System.out.println("size is: " + hashSet.size());
+
+       System.out.println(hashSet.size());
     }
 }
