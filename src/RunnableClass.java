@@ -1,7 +1,7 @@
 import java.util.Arrays;
+import java.util.List;
 
 public class RunnableClass {
-
     private static void  quickSort(int[] arr , int low , int high) {
         if(low < high){
             int pi = partition(arr ,  low , high);
@@ -12,8 +12,7 @@ public class RunnableClass {
     private static int partition(int[] arr , int low , int high){
         int pivot = arr[high] , i = low - 1;
         for(int j = low ; j < high ; j++){
-            if(arr[j] > pivot){ //descending
-            // if(arr[j] < pivot){ //ascending
+            if(arr[j] > pivot){
                 i++;
                 swap(arr , i , j);
             }
@@ -30,8 +29,8 @@ public class RunnableClass {
         int[] arr = {1 , 7 , 5 , 13 , 22 , 10};
         quickSort(arr, 0, arr.length - 1);
         System.out.println(Arrays.toString(arr));
-    }
 
+    }
 }
 
 
