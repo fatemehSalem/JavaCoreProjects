@@ -12,7 +12,10 @@ public class HashSetExample1 {
         list2.add(1);
         hashSet.add(list1);
         hashSet.add(list2);
+        hashSet.forEach(arrayList -> {
+            arrayList.forEach(System.out::println);
+        });
 
-        System.out.println(hashSet.size());
+       System.out.println("size is: " + hashSet.size());
     }
 }

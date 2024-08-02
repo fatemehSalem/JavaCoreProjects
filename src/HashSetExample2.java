@@ -13,6 +13,9 @@ public class HashSetExample2 {
         hashSet.add(list1);
         hashSet.add(list2);
 
-        System.out.println(hashSet.size());
+        hashSet.forEach(arrayList -> {
+            arrayList.forEach(System.out::println);
+        });
+        System.out.println("size is: " + hashSet.size());
     }
 }
