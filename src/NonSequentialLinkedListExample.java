@@ -1,4 +1,6 @@
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 public class NonSequentialLinkedListExample {
     //Non Sequential Addition
@@ -9,5 +11,8 @@ public class NonSequentialLinkedListExample {
         list.add(2,2);
         for(Integer i : list)
             System.out.println(i);
+
+        List<Integer> integers = Arrays.asList(10 , 5 , 14 , 2);
+
     }
 }
