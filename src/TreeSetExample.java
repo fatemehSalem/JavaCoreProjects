@@ -11,7 +11,6 @@ public class TreeSetExample {
 
         treeSet1.add(1);
         treeSet1.add(2);
-        treeSet1.add(1);
         treeSet1.add(4);
         treeSet1.add(6);
         treeSet1.add(7);
