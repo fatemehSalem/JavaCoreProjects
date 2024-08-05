@@ -2,7 +2,8 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
-public class FileReader {
+public class MyFileReader {
+
     public String readFile(String fileName) throws FileNotFoundException {
         StringBuilder content = new StringBuilder();
         File file = new File(fileName);
@@ -15,7 +16,7 @@ public class FileReader {
     }
 
     public static void main(String[] args) {
-        FileReader reader = new FileReader();
+        MyFileReader reader = new MyFileReader();
         try {
 
             String content = reader.readFile("non-existent-file.txt");
