@@ -3,14 +3,11 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
-
 public class WordFrequencyCounterByHashMap {
-
     //**********from CHAT GPT************//
     public static void main(String[] args) {
         String filePath = "C:\\Users\\ASUS\\Desktop\\document.txt";
         Map<String, Integer> wordCountMap = new HashMap<>();
-
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
             while ((line = br.readLine()) != null) {
@@ -25,16 +22,11 @@ public class WordFrequencyCounterByHashMap {
                         // Update the word count in the map
                         //Check if the word is not empty and update its count in the HashMap using getOrDefault() method.
                         wordCountMap.put(word, wordCountMap.getOrDefault(word, 0) + 1);
-                    }
-                }
-            }
+                    }}}
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        // Print the word frequencies
-        for (Map.Entry<String, Integer> entry : wordCountMap.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue());
+        wordCountMap.forEach((key, value) -> System.out.println(key + ": " + value));
         }
-    }
+
 }
