@@ -9,13 +9,24 @@ public class HashMapExample3 {
 
         Enumeration<String> enumeration = hashtable.keys();
 
+        System.out.println("************Enumeration*************");
+        String key;
         while (enumeration.hasMoreElements()) {
-            String key = enumeration.nextElement();
+            key = enumeration.nextElement();
 
             hashtable.put("key3", "value3");
             hashtable.put("key2", "newValue_value2");
 
             System.out.println(key);
         }
+
+        System.out.println("*************For Each************");
+
+        hashtable.forEach((s, s2) -> {
+            hashtable.put("key3", "value3");
+            hashtable.put("key2", "newValue_value2");
+
+            System.out.println(s2);
+        });
     }
 }
