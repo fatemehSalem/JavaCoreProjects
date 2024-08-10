@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Box<T, V extends Number> {
+public class Box<T extends Number, V extends Number> {
 
             private T item;
             private V externalItem;
@@ -12,18 +12,17 @@ public class Box<T, V extends Number> {
                 this.boxName = boxName;
             }
 
+        public double multiItems(){
+                return  item.intValue() * externalItem.doubleValue();}
 
-            public T getItem() {
-                return item;
-            }
-            public T getExternalItem() {
-                return item;
-            }
 
-     /*       public double multiItems(){
-                return  item.doubleValue() * externalItem.doubleValue();
-            }*/
 
+    public T getItem() {
+        return item;
+    }
+    public T getExternalItem() {
+        return item;
+    }
             public static <T> void printArray(T[] array) {
                 for (T element : array) {
                     System.out.println(element);
@@ -36,6 +35,7 @@ public class Box<T, V extends Number> {
 
             public static void addToList(List<? super Integer> list) {
                 list.add(123);
+                list.add(null);
             }
 
 

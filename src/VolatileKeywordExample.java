@@ -9,8 +9,10 @@ public class VolatileKeywordExample {
         flag = false;
     }
     public static void main(String[] args) throws InterruptedException {
+
         VolatileKeywordExample example = new VolatileKeywordExample();
         Thread t1 = new Thread(example::run);
+
         t1.start();
         Thread.sleep(1000);
         example.stop();

@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Optional;
 
 public class HashSetExample1 {
     public static void main(String[] args) {
@@ -12,11 +13,16 @@ public class HashSetExample1 {
         list2.add(1);
         hashSet.add(list1);
         hashSet.add(list2);
+
+
         hashSet.forEach(arrayList -> {
             arrayList.forEach(System.out::println);
         });
 
 
        System.out.println(hashSet.size());
+
+
+
     }
 }
