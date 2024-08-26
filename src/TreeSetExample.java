@@ -11,6 +11,10 @@ public class TreeSetExample {
         treeSet1.add(6);
         treeSet1.add(7);
 
+        if(treeSet1.contains(3))
+            System.out.println("found!");
+        else System.out.println("not found!");
+
         Iterator<Integer> iterator = treeSet1.iterator();
         while (iterator.hasNext())
             System.out.println(iterator.next());
