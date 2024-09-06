@@ -5,6 +5,7 @@ public class RunVariables {
          int x = 10;  // Stored in stack
         RunVariables example = new RunVariables();  // Reference stored in stack, object stored in heap
         example.display();
+
     }
 
     public void display() {
