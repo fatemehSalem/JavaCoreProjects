@@ -1,5 +1,5 @@
 public class YieldExample {
-    public static void main(String[] args) {
+/*    public static void main(String[] args) {
         Runnable runnable = () -> {
             for (int i = 0; i < 5; i++) {
                 System.out.println(Thread.currentThread().getName() + " is executing.");
@@ -12,5 +12,12 @@ public class YieldExample {
 
         t1.start();
         t2.start();
+    }*/
+    public static void main(String[] args) throws InterruptedException {
+        Thread myThread = new Thread(() -> System.out.println("Hello from new thread"));
+        myThread.start();
+        Thread.yield();
+        System.out.println("Hello from main thread");
+        myThread.join();
     }
 }
