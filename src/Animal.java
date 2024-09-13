@@ -4,4 +4,8 @@ public abstract class Animal { //Abstract Class
     public void identify() { //non-abstract method
         System.out.println("I am an animal.");
     }
+
+    public void animaBehavior(){
+        System.out.println("Wild");
+    }
 }
