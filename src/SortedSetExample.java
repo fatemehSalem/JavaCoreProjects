@@ -9,5 +9,12 @@ public class SortedSetExample {
         strings.add("Akram");
         strings.add("Zahra");
         strings.forEach(System.out::println);
+        System.out.println("***************************");
+        SortedSet<Integer> integers = new TreeSet<>();
+        integers.add(11);
+        integers.add(2);
+        integers.add(22);
+        integers.add(12);
+        integers.forEach(System.out::println);
     }
 }
